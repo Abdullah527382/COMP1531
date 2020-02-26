@@ -364,4 +364,26 @@ def test_msg_send():
 	results = register()
 	channelInfo = channels_create(results['token'], 'Kool kids', False)
 """
+"""
+Agile: Philosophy, Practices, Processes, Cultural movement 
+Its good for: Delivering software on time, changing 
+requirements, your project and your resume. 
 
+Agile Practices:
+Standups: Frequent short progress update meetings, 
+traditionally everyone stands up and answer 3 Q's
+- What did I do?
+- What problems did I face?
+- What am i going to do?
+
+Asynchronous standups 
+Advantages: 
+- No need to find suitable time for everyone
+- May work better for big teams 
+- Eg. slacks standup channel?
+Disadvantages: 
+- Easy to forget to forget to give updates 
+- Less personal
+
+Have a taskboard to upload tasks to do
+"""
