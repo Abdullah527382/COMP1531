@@ -303,3 +303,65 @@ we raise an exception above,then use pytest with -ve numbers
 - We need to use this in our assignment 
 
 """
+"""
+Iteration 1 worth - 30%
+- Mostly about testing
+
+Creating pytests worth 40%
+
+Good git practices worth 20%
+- Tutor looks at git commits, branches and merge requests
+  i.e. meaningful git commits
+Project management 20%
+- Talk about agile and slack
+- Slack is an instant messaging platform/forum
+Teamwork 10%
+- Work effectively, talk, communication, etc. worth 10%
+Assumptions and markdown files worth 10%
+- Markdown is an easy language, i.e. here are the 
+  assumptions made about the specification, are these 
+  right?
+
+Agile: 
+
+auth_test.py
+- this will get picked up by pytest
+- don't change the functions in auth.py
+"""
+import pytest
+from auth import register
+def test_register():
+	results = register('Hayden@unsw.edu.au', 'hayden123', 'hayden', 'smith')
+
+def test_register_short_pw():
+	with pytest.raises(InputError) as e:
+	register('Hayden@unsw.edu.au', 'a', 'hayden', 'smith')
+
+def test_register_valid_email():
+	with pytest.raises(InputError) as e:
+	register('Hayden', 'a', 'hayden', 'smith')
+
+# Assume that register works 
+def test_login():
+	results1 = register('Hayden@unsw.edu.au', 'hayden123', 'hayden', 'smith')
+	u_id = results1['u_id']
+	token = results1['token']
+
+	result2 = login('Hayden@unsw.edu.au', 'hayden123')
+	u_id2 = results2['u_id']
+	token2 = results['token']
+
+	assert u_id1 == u_id2
+
+def test_register_double():
+	results1 = register('Hayden@unsw.edu.au', 'hayden123', 'hayden', 'smith')
+
+	with pytest.raises(InputError) as e:
+	# 'gobbles' it all up, i.e. waiting for an exception (e) to be thrown.
+		register('Hayden@unsw.edu.au', 'a', 'hayden', 'smith')
+"""		
+def test_msg_send():
+	results = register()
+	channelInfo = channels_create(results['token'], 'Kool kids', False)
+"""
+
