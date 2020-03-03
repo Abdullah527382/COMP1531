@@ -387,3 +387,36 @@ Disadvantages:
 
 Have a taskboard to upload tasks to do
 """
+
+"""
+Testing for rainfall.py
+Compute the average of only the positive 
+elements in the list
+
+Consider the cases:
+- [] --> 0, returns empty?0?
+- [0.123] --> something, i.e. 0.0137
+- []
+Do we assume if only integers and non floats? 
+- [0.123] --> returns empty if integers only
+- [-1,1] --> 1
+- [-1,-2] --> empty
+- [1,1,1] --> 1
+
+"""
+def rainfall(integers):
+	positive = [i for i in integers if i > 0]
+	total += i
+	count += 1
+	if (count > 0):
+		return total/count
+	else:
+		return none
+
+	pass
+
+
+def test_simple():
+	assert rainfall([1,2,3]) == 2
+def test_negative():
+	assert rainfall([1,-5,3,4,4]) == 3
