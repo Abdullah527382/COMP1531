@@ -144,5 +144,81 @@ with open('./weatherAUS.csv') as csv_file:
 	    		locationSummary.append(locationTuple)
 	    # print out the list
 	    for location.rainfall in locationSummary:
-	    	print(f"{location}: {round(rainfall}")
+	    	print(f '{location}: {round(rainfall)')
 	   	print(locationSummary)
+
+"""
+4/03/2020 - Verification:
+Formal verification: 
+- Proving via maths that a piece of software has certain 
+  desirable properties
+- Treats software, algorithms implemented in software as 
+  math object 
+- Not something covered in this course 
+
+Unit testing:
+
+- The testing of individual software components
+- Blackbox tests: Don't know how functions work, we're
+  only caring about input and output. We can write 
+  tests before creating actual code
+
+- White box testing example: We dig ino the details of 
+  the function and write tests accordingly
+  Unit testing IS whitebox testing eg. testing sqrt()
+  function, if it has that particular output
+
+- What we are doing right now is Integration testing 
+  (checking for any defects in interfaces and interactions
+  between components or systems) --> more often blackbox than
+  whitebox (method)
+
+- System testing: The process of testing an integrated 
+  system to verify that it meets specified requirements.
+- How to write good tests:
+Coverage : 
+- Test coverage: 
+  How much feature set is covered with tests
+- Code coverage: 
+  How much doe is executed in tests
+  eg. code below
+- Coverage.py:
+  - Measure code coverage as a percentage of statements 
+   (lines) executed
+  - Can give us a good indication how much of our code is 
+   executed by the tests
+  - and most importantly highlight what has not been executed.
+"""
+
+def is_leap_year(year):
+    if year % 4 != 0:
+        return False
+    elif year % 100 != 0:
+        return True
+    elif year % 400 != 0:
+        return False
+    else:
+        return True
+
+from leapyear import is_leap_year
+
+def test_four():
+  assert is_leap_year(2020) == True 
+  assert is_leap_year(2024) == True 
+  assert is_leap_year(2028) == True 
+  assert is_leap_year(2032) == True 
+
+# Note: we can also use loops, but that gets complex
+"""
+Checking code coverage:
+   python3-coverage run --source=. -m pytest
+View the coverage report:
+   python3-coverage report
+*You can also generate html to see breakdown: 
+   python3-coverage html
+--> puts eport in htmlcov/
+Note: --source = current folder, -m = run pytest, also
+A code coverage tool looks at what pytest checks (pytest
+runs the program), 
+
+""" 
